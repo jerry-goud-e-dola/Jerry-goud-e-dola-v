@@ -1,0 +1,444 @@
+
+<!DOCTYPE html>
+<html lang="ht">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#101a33">
+  <meta name="description" content="Jerry Goud e Dola — aprann finans, kalkile goud ak dola, epi pratike gratis.">
+  <title>Jerry Goud e Dola</title>
+  <style>
+    :root {
+      --navy: #101a33;
+      --gold: #e6b84c;
+      --bg: #f4f6fb;
+      --text: #17213a;
+      --muted: #667085;
+      --white: #ffffff;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+    }
+    header {
+      background: var(--navy);
+      color: white;
+      padding: 18px 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+    .brand { font-size: 19px; font-weight: 800; }
+    .brand span { color: var(--gold); }
+    select, input, button {
+      font: inherit;
+      border-radius: 10px;
+      padding: 12px;
+    }
+    select, input {
+      border: 1px solid #d8deea;
+      background: white;
+      color: var(--text);
+      width: 100%;
+    }
+    header select { width: auto; }
+    .hero {
+      background: linear-gradient(135deg, #101a33, #243b69);
+      color: white;
+      padding: 55px 6% 65px;
+      text-align: center;
+    }
+    .hero h1 {
+      font-size: clamp(30px, 6vw, 48px);
+      margin: 0 0 15px;
+    }
+    .hero h1 span { color: var(--gold); }
+    .hero p {
+      line-height: 1.7;
+      max-width: 620px;
+      margin: 0 auto 24px;
+      color: #e1e7f4;
+    }
+    .button {
+      border: 0;
+      background: var(--gold);
+      color: var(--navy);
+      font-weight: bold;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+    }
+    main {
+      width: min(1050px, 92%);
+      margin: 30px auto;
+    }
+    .section-title { margin: 36px 0 16px; }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 18px;
+    }
+    .card {
+      background: white;
+      padding: 23px;
+      border-radius: 18px;
+      box-shadow: 0 5px 22px #1826480b;
+    }
+    .card h3 { margin-top: 0; }
+    .card p { color: var(--muted); line-height: 1.6; }
+    .converter {
+      max-width: 600px;
+      margin: auto;
+    }
+    .field { margin: 16px 0; }
+    .field label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 8px;
+    }
+    .result {
+      background: #fff7df;
+      border: 1px solid #f0d68d;
+      padding: 20px;
+      border-radius: 14px;
+      margin-top: 18px;
+    }
+    .result strong {
+      font-size: 27px;
+      overflow-wrap: anywhere;
+    }
+    .note {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+    .demo-balance {
+      font-size: 27px;
+      color: #147d52;
+      font-weight: bold;
+    }
+    footer {
+      margin-top: 45px;
+      padding: 28px 5%;
+      text-align: center;
+      background: var(--navy);
+      color: #e1e7f4;
+      line-height: 1.8;
+    }
+    a { color: inherit; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="brand">JERRY <span>GOUD E DOLA</span></div>
+    <select id="languageSelect" aria-label="Chwazi lang">
+      <option value="ht">Kreyòl</option>
+      <option value="fr">Français</option>
+      <option value="en">English</option>
+      <option value="es">Español</option>
+    </select>
+  </header>
+
+  <section class="hero">
+    <h1 id="heroTitle">Aprann finans, <span>pi fasil.</span></h1>
+    <p id="heroText">Kalkile goud ak dola, aprann jere lajan ou, epi pratike nan yon anviwònman demonstrasyon gratis.</p>
+    <a class="button" href="#converter" id="heroButton">Kòmanse gratis</a>
+  </section>
+
+  <main>
+    <h2 class="section-title" id="toolsTitle">Zouti prensipal yo</h2>
+    <div class="grid">
+      <article class="card">
+        <h3 id="converterCardTitle">💱 Konvètisè lajan</h3>
+        <p id="converterCardText">Kalkile montan goud ak dola avèk to echanj ou antre a.</p>
+        <a href="#converter" id="converterLink">Kalkile kounye a →</a>
+      </article>
+      <article class="card">
+        <h3 id="demoTitle">🎮 Demo gratis</h3>
+        <p id="demoText">Dekouvri kijan kalkil finansye fonksyone san lajan reyèl.</p>
+        <a href="#demo" id="demoLink">Eseye demo a →</a>
+      </article>
+      <article class="card">
+        <h3 id="learnTitle">📚 Leson finans</h3>
+        <p id="learnText">Aprann baz bidjè, echanj lajan ak sekirite finansye.</p>
+        <a href="#learn" id="learnLink">Aprann plis →</a>
+      </article>
+    </div>
+
+    <section id="converter">
+      <h2 class="section-title" id="calcHeading">Konvètisè goud ak dola</h2>
+      <div class="card converter">
+        <p id="rateHelp">Antre to echanj la: konbyen goud pou 1 dola ameriken?</p>
+        <div class="field">
+          <label for="rate" id="rateLabel">To echanj (HTG pou 1 USD)</label>
+          <input id="rate" type="number" min="0.0001" step="any" value="130">
+        </div>
+        <div class="field">
+          <label for="amount" id="amountLabel">Montan</label>
+          <input id="amount" type="number" min="0" step="any" value="100">
+        </div>
+        <div class="field">
+          <label for="direction" id="directionLabel">Sans konvèsyon</label>
+          <select id="direction">
+            <option value="usd">USD → HTG</option>
+            <option value="htg">HTG → USD</option>
+          </select>
+        </div>
+        <button class="button" id="calculateButton">Kalkile</button>
+        <div class="result" aria-live="polite">
+          <p id="resultLabel">Rezilta</p>
+          <strong id="result">13,000.00 HTG</strong>
+        </div>
+        <p class="note" id="rateNote">To 130 la se yon egzanp demonstrasyon, se pa yon to echanj an tan reyèl. Verifye to aktyèl la anvan ou pran desizyon finansye.</p>
+      </div>
+    </section>
+
+    <section id="demo">
+      <h2 class="section-title" id="demoHeading">Demo finansye</h2>
+      <div class="card">
+        <p id="demoDescription">Sa a se yon demonstrasyon pou aprann. Pa gen lajan reyèl ladan l.</p>
+        <p id="demoBalanceLabel">Balans demonstrasyon</p>
+        <div class="demo-balance">1,000.00 USD</div>
+        <p class="note" id="demoNote">Balans lan se yon egzanp vizyèl sèlman; li pa yon kont labank ni yon depo reyèl.</p>
+      </div>
+    </section>
+
+    <section id="learn">
+      <h2 class="section-title" id="learnHeading">Aprann finans</h2>
+      <div class="grid">
+        <article class="card">
+          <h3 id="lesson1Title">1. Konprann echanj</h3>
+          <p id="lesson1Text">To echanj la di konbyen yon lajan vo parapò ak yon lòt.</p>
+        </article>
+        <article class="card">
+          <h3 id="lesson2Title">2. Planifye bidjè ou</h3>
+          <p id="lesson2Text">Konpare revni ou ak depans ou pou pi byen planifye lajan ou.</p>
+        </article>
+        <article class="card">
+          <h3 id="lesson3Title">3. Pwoteje tèt ou</h3>
+          <p id="lesson3Text">Pa janm pataje modpas ou oswa kòd sekirite ou ak lòt moun.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="account">
+      <h2 class="section-title" id="accountHeading">Kont kliyan</h2>
+      <div class="card">
+        <p id="accountText">Enskripsyon ak verifikasyon idantite pral ajoute avèk yon backend sekirize. Paj sa a poko kreye kont reyèl oswa fè KYC.</p>
+        <p class="note" id="securityNote">Pa antre ni voye okenn modpas oswa dokiman idantite nan vèsyon demonstrasyon sa a.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <strong>Jerry Goud e Dola</strong>
+    <p id="footerText">Aprann. Kalkile. Pwogrese.</p>
+    <small>© 2026 Jerry Goud e Dola — <span id="footerNote">Platfòm edikasyon finansye demonstrasyon.</span></small>
+  </footer>
+
+  <script>
+    const translations = {
+      ht: {
+        heroTitle: 'Aprann finans, <span>pi fasil.</span>',
+        heroText: 'Kalkile goud ak dola, aprann jere lajan ou, epi pratike nan yon anviwònman demonstrasyon gratis.',
+        heroButton: 'Kòmanse gratis', toolsTitle: 'Zouti prensipal yo',
+        converterCardTitle: '💱 Konvètisè lajan',
+        converterCardText: 'Kalkile montan goud ak dola avèk to echanj ou antre a.',
+        converterLink: 'Kalkile kounye a →', demoTitle: '🎮 Demo gratis',
+        demoText: 'Dekouvri kijan kalkil finansye fonksyone san lajan reyèl.',
+        demoLink: 'Eseye demo a →', learnTitle: '📚 Leson finans',
+        learnText: 'Aprann baz bidjè, echanj lajan ak sekirite finansye.',
+        learnLink: 'Aprann plis →', calcHeading: 'Konvètisè goud ak dola',
+        rateHelp: 'Antre to echanj la: konbyen goud pou 1 dola ameriken?',
+        rateLabel: 'To echanj (HTG pou 1 USD)', amountLabel: 'Montan',
+        directionLabel: 'Sans konvèsyon', calculateButton: 'Kalkile',
+        resultLabel: 'Rezilta', rateNote: 'To 130 la se yon egzanp demonstrasyon, se pa yon to echanj an tan reyèl. Verifye to aktyèl la anvan ou pran desizyon finansye.',
+        demoHeading: 'Demo finansye',
+        demoDescription: 'Sa a se yon demonstrasyon pou aprann. Pa gen lajan reyèl ladan l.',
+        demoBalanceLabel: 'Balans demonstrasyon',
+        demoNote: 'Balans lan se yon egzanp vizyèl sèlman; li pa yon kont labank ni yon depo reyèl.',
+        learnHeading: 'Aprann finans',
+        lesson1Title: '1. Konprann echanj',
+        lesson1Text: 'To echanj la di konbyen yon lajan vo parapò ak yon lòt.',
+        lesson2Title: '2. Planifye bidjè ou',
+        lesson2Text: 'Konpare revni ou ak depans ou pou pi byen planifye lajan ou.',
+        lesson3Title: '3. Pwoteje tèt ou',
+        lesson3Text: 'Pa janm pataje modpas ou oswa kòd sekirite ou ak lòt moun.',
+        accountHeading: 'Kont kliyan',
+        accountText: 'Enskripsyon ak verifikasyon idantite pral ajoute avèk yon backend sekirize. Paj sa a poko kreye kont reyèl oswa fè KYC.',
+        securityNote: 'Pa antre ni voye okenn modpas oswa dokiman idantite nan vèsyon demonstrasyon sa a.',
+        footerText: 'Aprann. Kalkile. Pwogrese.',
+        footerNote: 'Platfòm edikasyon finansye demonstrasyon.',
+        invalid: 'Tanpri antre yon montan ak yon to echanj ki valab.',
+        usd: 'USD → HTG', htg: 'HTG → USD'
+      },
+      fr: {
+        heroTitle: 'Apprenez la finance, <span>plus facilement.</span>',
+        heroText: 'Convertissez les gourdes et les dollars, apprenez à gérer votre argent et pratiquez gratuitement.',
+        heroButton: 'Commencer gratuitement', toolsTitle: 'Nos outils',
+        converterCardTitle: '💱 Convertisseur de devises',
+        converterCardText: 'Calculez les montants en gourdes et en dollars avec le taux saisi.',
+        converterLink: 'Calculer maintenant →', demoTitle: '🎮 Démo gratuite',
+        demoText: 'Découvrez les calculs financiers sans argent réel.',
+        demoLink: 'Essayer la démo →', learnTitle: '📚 Leçons de finance',
+        learnText: 'Découvrez le budget, le change et la sécurité financière.',
+        learnLink: 'En savoir plus →', calcHeading: 'Convertisseur gourdes et dollars',
+        rateHelp: 'Saisissez le nombre de gourdes pour un dollar américain.',
+        rateLabel: 'Taux de change (HTG pour 1 USD)', amountLabel: 'Montant',
+        directionLabel: 'Sens de conversion', calculateButton: 'Calculer',
+        resultLabel: 'Résultat', rateNote: 'Le taux de 130 est un exemple, pas un taux en temps réel. Vérifiez le taux actuel avant toute décision financière.',
+        demoHeading: 'Démo financière',
+        demoDescription: 'Cette démonstration est destinée à l’apprentissage. Aucun argent réel.',
+        demoBalanceLabel: 'Solde de démonstration',
+        demoNote: 'Ce solde est purement illustratif, ce n’est ni un compte bancaire ni un dépôt réel.',
+        learnHeading: 'Apprendre la finance',
+        lesson1Title: '1. Comprendre le change',
+        lesson1Text: 'Le taux indique la valeur d’une monnaie par rapport à une autre.',
+        lesson2Title: '2. Préparer son budget',
+        lesson2Text: 'Comparez vos revenus et dépenses pour mieux gérer votre argent.',
+        lesson3Title: '3. Se protéger',
+        lesson3Text: 'Ne partagez jamais vos mots de passe ni vos codes de sécurité.',
+        accountHeading: 'Compte client',
+        accountText: 'L’inscription et la vérification d’identité seront ajoutées avec un backend sécurisé. Cette page ne crée pas encore de compte réel et ne réalise pas de KYC.',
+        securityNote: 'Ne saisissez ni n’envoyez de mot de passe ou de pièce d’identité dans cette démo.',
+        footerText: 'Apprendre. Calculer. Progresser.',
+        footerNote: 'Plateforme éducative financière de démonstration.',
+        invalid: 'Veuillez saisir un montant et un taux de change valides.',
+        usd: 'USD → HTG', htg: 'HTG → USD'
+      },
+      en: {
+        heroTitle: 'Learn finance, <span>the easy way.</span>',
+        heroText: 'Convert gourdes and dollars, learn to manage money, and practice for free in a demo environment.',
+        heroButton: 'Get started free', toolsTitle: 'Our main tools',
+        converterCardTitle: '💱 Currency converter',
+        converterCardText: 'Calculate gourde and dollar amounts using your entered exchange rate.',
+        converterLink: 'Calculate now →', demoTitle: '🎮 Free demo',
+        demoText: 'Explore financial calculations without real money.',
+        demoLink: 'Try the demo →', learnTitle: '📚 Finance lessons',
+        learnText: 'Learn budgeting, currency exchange, and financial safety.',
+        learnLink: 'Learn more →', calcHeading: 'Gourde and dollar converter',
+        rateHelp: 'Enter how many gourdes equal one US dollar.',
+        rateLabel: 'Exchange rate (HTG per 1 USD)', amountLabel: 'Amount',
+        directionLabel: 'Conversion direction', calculateButton: 'Calculate',
+        resultLabel: 'Result', rateNote: 'The rate of 130 is a demo example, not a live exchange rate. Check the current rate before making financial decisions.',
+        demoHeading: 'Financial demo',
+        demoDescription: 'This is an educational demo. No real money is involved.',
+        demoBalanceLabel: 'Demo balance',
+        demoNote: 'This balance is illustrative only; it is not a bank account or a real deposit.',
+        learnHeading: 'Learn finance',
+        lesson1Title: '1. Understand exchange rates',
+        lesson1Text: 'An exchange rate shows one currency’s value compared with another.',
+        lesson2Title: '2. Plan your budget',
+        lesson2Text: 'Compare income and expenses to manage your money more effectively.',
+        lesson3Title: '3. Protect yourself',
+        lesson3Text: 'Never share your passwords or security codes with others.',
+        accountHeading: 'Customer account',
+        accountText: 'Registration and identity verification will be added using a secure backend. This page does not yet create real accounts or perform KYC.',
+        securityNote: 'Do not enter or send passwords or identity documents in this demo version.',
+        footerText: 'Learn. Calculate. Progress.',
+        footerNote: 'Educational finance demo platform.',
+        invalid: 'Please enter a valid amount and exchange rate.',
+        usd: 'USD → HTG', htg: 'HTG → USD'
+      },
+      es: {
+        heroTitle: 'Aprende finanzas, <span>más fácilmente.</span>',
+        heroText: 'Convierte gourdes y dólares, aprende a administrar tu dinero y practica gratis.',
+        heroButton: 'Comenzar gratis', toolsTitle: 'Herramientas principales',
+        converterCardTitle: '💱 Conversor de divisas',
+        converterCardText: 'Calcula gourdes y dólares usando el tipo de cambio que introduzcas.',
+        converterLink: 'Calcular ahora →', demoTitle: '🎮 Demo gratuita',
+        demoText: 'Practica cálculos financieros sin dinero real.',
+        demoLink: 'Probar la demo →', learnTitle: '📚 Lecciones financieras',
+        learnText: 'Aprende sobre presupuestos, cambio de divisas y seguridad financiera.',
+        learnLink: 'Saber más →', calcHeading: 'Conversor de gourdes y dólares',
+        rateHelp: 'Introduce cuántos gourdes equivalen a un dólar estadounidense.',
+        rateLabel: 'Tipo de cambio (HTG por 1 USD)', amountLabel: 'Cantidad',
+        directionLabel: 'Dirección de conversión', calculateButton: 'Calcular',
+        resultLabel: 'Resultado', rateNote: 'El tipo de 130 es un ejemplo de demostración, no una tasa en tiempo real. Comprueba la tasa actual antes de tomar decisiones financieras.',
+        demoHeading: 'Demo financiera',
+        demoDescription: 'Esta demostración es educativa. No contiene dinero real.',
+        demoBalanceLabel: 'Saldo de demostración',
+        demoNote: 'Este saldo es solo ilustrativo; no es una cuenta bancaria ni un depósito real.',
+        learnHeading: 'Aprender finanzas',
+        lesson1Title: '1. Entender el cambio',
+        lesson1Text: 'El tipo de cambio indica el valor de una moneda frente a otra.',
+        lesson2Title: '2. Planificar tu presupuesto',
+        lesson2Text: 'Compara tus ingresos y gastos para administrar mejor tu dinero.',
+        lesson3Title: '3. Protegerte',
+        lesson3Text: 'Nunca compartas tus contraseñas ni tus códigos de seguridad.',
+        accountHeading: 'Cuenta del cliente',
+        accountText: 'El registro y la verificación de identidad se añadirán mediante un backend seguro. Esta página aún no crea cuentas reales ni realiza KYC.',
+        securityNote: 'No introduzcas ni envíes contraseñas o documentos de identidad en esta demo.',
+        footerText: 'Aprender. Calcular. Progresar.',
+        footerNote: 'Plataforma educativa financiera de demostración.',
+        invalid: 'Introduce una cantidad y un tipo de cambio válidos.',
+        usd: 'USD → HTG', htg: 'HTG → USD'
+      }
+    };
+
+    const languageSelect = document.getElementById('languageSelect');
+
+    function setLanguage(language) {
+      const t = translations[language] || translations.ht;
+      document.documentElement.lang = language;
+
+      Object.keys(t).forEach(key => {
+        const element = document.getElementById(key);
+        if (element && !['invalid', 'usd', 'htg'].includes(key)) {
+          if (key === 'heroTitle') {
+            element.innerHTML = t[key];
+          } else {
+            element.textContent = t[key];
+          }
+        }
+      });
+
+      const direction = document.getElementById('direction');
+      direction.options[0].text = t.usd;
+      direction.options[1].text = t.htg;
+      calculate();
+    }
+
+    function calculate() {
+      const rate = Number(document.getElementById('rate').value);
+      const amount = Number(document.getElementById('amount').value);
+      const direction = document.getElementById('direction').value;
+      const output = document.getElementById('result');
+      const label = document.getElementById('resultLabel');
+      const language = languageSelect.value;
+      const t = translations[language] || translations.ht;
+
+      if (!Number.isFinite(rate) || !Number.isFinite(amount) ||
+          rate <= 0 || amount < 0 ||
+          document.getElementById('rate').value === '' ||
+          document.getElementById('amount').value === '') {
+        output.textContent = t.invalid;
+        label.textContent = t.resultLabel;
+        return;
+      }
+
+      const result = direction === 'usd' ? amount * rate : amount / rate;
+      const currency = direction === 'usd' ? 'HTG' : 'USD';
+
+      output.textContent = new Intl.NumberFormat(
+        language === 'fr' ? 'fr-FR' : language === 'es' ? 'es-ES' : 'en-US',
+        { maximumFractionDigits: 2, minimumFractionDigits: 2 }
+      ).format(result) + ' ' + currency;
+
+      label.textContent = t.resultLabel;
+    }
+
+    languageSelect.addEventListener('change', event => {
+      setLanguage(event.target.value);
+    });
+
+    document.getElementById('calculateButton')
+      .addEventListener('click', calculate);
+    document.getElementById('rate').addEventListener('input', calculate);
+    document.getElementById('amount').addEventListener('input', calculate);
+    document.g
